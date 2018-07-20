@@ -11,9 +11,9 @@
     <title>User Test</title>
 </head>
 <body>
-    이름: ${user.name} </br>
-    아이디: ${user.id} </br>
-    비밀번호: ${user.pw} </br>
+    이름: ${user.name} <br>
+    아이디: ${user.id} <br>
+    비밀번호: ${user.pw} <br>
     이메일: ${user.email}
 </body>
 </html>

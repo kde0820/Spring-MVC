@@ -2,6 +2,7 @@ package controller;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import user.User;
@@ -50,6 +51,11 @@ public class Controller {
 
     @RequestMapping(value = "/user/userTest")
     public String userTest(User user){
+        return "/user/userTest";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "join")
+    public String join(User user){
         return "/user/userTest";
     }
 }

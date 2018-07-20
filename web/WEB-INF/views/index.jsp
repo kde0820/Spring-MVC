@@ -11,6 +11,12 @@
     <title>$Title$</title>
   </head>
   <body>
-    Hello, World!
+    <form action="join" method="get">
+        ID: <input type="text" name="id"> <br>
+        PW: <input type="password" name="pw"> <br>
+        NAME: <input type="text" name="name"> <br>
+        EMAIL: <input type="email" name="email"> <br>
+        <input type="submit" value="가입">
+    </form>
   </body>
 </html>
