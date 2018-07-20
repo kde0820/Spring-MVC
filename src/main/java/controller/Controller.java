@@ -1,11 +1,13 @@
 package controller;
 
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import user.User;
+import user.UserValidator;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -69,7 +71,7 @@ public class Controller {
     }
 
     @RequestMapping(value = "/user/userSuccess")
-    public String userSuccess(User user){
+    public String userSuccess(){
         return "/user/userSuccess";
     }
 
@@ -77,4 +79,23 @@ public class Controller {
     public String userError(){
         return "/user/userError";
     }
+
+    @RequestMapping(value = "/validationForm")
+    public String validationForm(){
+        return "/validation/validationForm";
+    }
+
+    @RequestMapping(value = "/validation/check")
+    public String validationCheck(User user, BindingResult result){
+        String page = "/validation/checkDoneUser";
+
+        UserValidator validator = new UserValidator();
+        validator.validate(user, result);
+        if(result.hasErrors()){
+            page = "/validation/validationForm";
+        }
+
+        return page;
+    }
+
 }
