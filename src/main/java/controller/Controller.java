@@ -51,11 +51,30 @@ public class Controller {
 
     @RequestMapping(value = "/user/userTest")
     public String userTest(User user){
+
         return "/user/userTest";
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "join")
+    @RequestMapping(method = RequestMethod.POST, value = "join")
     public String join(User user){
         return "/user/userTest";
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/user/userConfirm")
+    public String userConfirm(User user){
+        if(user.getId().equals("test")){
+            return "redirect:userSuccess";
+        }
+        return "redirect:userError";
+    }
+
+    @RequestMapping(value = "/user/userSuccess")
+    public String userSuccess(User user){
+        return "/user/userSuccess";
+    }
+
+    @RequestMapping(value = "/user/userError")
+    public String userError(){
+        return "/user/userError";
     }
 }

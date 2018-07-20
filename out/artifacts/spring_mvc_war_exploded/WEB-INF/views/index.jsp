@@ -11,12 +11,19 @@
     <title>$Title$</title>
   </head>
   <body>
-    <form action="join" method="get">
+    <form action="join" method="post">
         ID: <input type="text" name="id"> <br>
         PW: <input type="password" name="pw"> <br>
         NAME: <input type="text" name="name"> <br>
         EMAIL: <input type="email" name="email"> <br>
         <input type="submit" value="가입">
+    </form>
+    <form action="/user/userConfirm" method="post">
+        ID: <input type="text" name="id"> <br>
+        PW: <input type="password" name="pw"> <br>
+        NAME: <input type="text" name="name"> <br>
+        EMAIL: <input type="email" name="email"> <br>
+        <input type="submit" value="Confirm">
     </form>
   </body>
 </html>
