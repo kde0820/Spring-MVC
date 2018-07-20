@@ -11,8 +11,7 @@
     <title>Param Test</title>
 </head>
 <body>
-<body>
-    ID: ${id}
+    ID: ${id} <br>
     NAME: ${name}
 </body>
 </html>
