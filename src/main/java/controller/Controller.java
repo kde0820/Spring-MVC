@@ -2,8 +2,10 @@ package controller;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 
 @org.springframework.stereotype.Controller
 public class Controller {
@@ -26,5 +28,22 @@ public class Controller {
         modelAndView.setViewName("/model/modelAndView");
 
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/request/requestTest")
+    public String requestTest(HttpServletRequest httpServletRequest, Model model){
+        String id = httpServletRequest.getParameter("id");
+        String name = httpServletRequest.getParameter("name");
+
+        model.addAttribute("id", id);
+        model.addAttribute("name", name);
+        return "/request/requestTest";
+    }
+
+    @RequestMapping(value = "/request/paramTest")
+    public String paramTest(@RequestParam("id") String id, @RequestParam("name") String name, Model model){
+        model.addAttribute("id", id);
+        model.addAttribute("name", name);
+        return "/request/paramTest";
     }
 }
